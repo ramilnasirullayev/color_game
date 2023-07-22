@@ -1,17 +1,20 @@
+from colorama import init, Fore, Style
+
 class GameDisplay:
     def __init__(self, game):
         self.game = game
         self.color_map = {
-            'r': 'red',
-            'b': 'blue',
-            'g': 'green',
-            'y': 'yellow',
+            'r': Fore.RED,
+            'b': Fore.BLUE,
+            'g': Fore.GREEN,
+            'y': Fore.YELLOW,
         }
+        init(autoreset=True)  # Initialize colorama
 
     def print_board(self):
         for row in self.game.board.board:
             for color in row:
-                print('██', self.color_map[color], end=' ')
+                print(f'{Style.BRIGHT}██{self.color_map[color]}██', end=' ')
             print()
 
     def play_game(self):
@@ -23,6 +26,6 @@ class GameDisplay:
                 color_choice = input(f"Invalid color! Choose a color from {', '.join(self.game.board.colors)}: ").strip().lower()
             self.game.play_turn(color_choice)
             if self.game.is_game_won():
-                print("Congratulations, you've won!")
+                print(Fore.GREEN + "Congratulations, you've won!")
                 return
-        print("Game Over. You've lost.")
+        print(Fore.RED + "Game Over. You've lost.")
