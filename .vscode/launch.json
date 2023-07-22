@@ -1,0 +1,13 @@
+{
+    "configurations": [
+
+        {
+            "name": "color game main.py",
+            "type": "python",
+            "request": "launch",
+            "program": "/Users/ramilnasirullayev/projects/color_game/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}
