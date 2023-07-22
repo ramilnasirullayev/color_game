@@ -1,6 +1,6 @@
 import os
 from termcolor import colored
-from game import *
+from src.game import *
 
 class GameDisplay:
     def __init__(self, game: Game):
